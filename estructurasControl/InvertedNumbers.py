@@ -1,9 +1,7 @@
-
 nums = []
-num = 1
-while num <= 100:
+
+for num in range(1, 101):
     nums.append(num)
-    num += 1
     
 sortedNums = sorted(nums, reverse = True)
 print(*sortedNums)
