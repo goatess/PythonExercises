@@ -1,22 +1,23 @@
-from clases.StudentsGrades.Student import Student
+from Student import Student
 
-students = []
+student = Student()
 
 def addStudent(name, grade):
-    students.append(Student(name, grade))   
+    student.setGrade(name, grade) 
 
-def isCompetent(name):
-    index = students.index(name)
-    grade = students[index].grade
+def isCompetent():
+    grade = student.grade
     if grade >= 5:
+        print("Aprovado")
         return True
     else:
+        print("Suspendido")
         return False
     
-def printStudent(name):
-    index = students.index(name)
-    print(students[index])
+def printStudent():
+    print(student.grade, student.name)
     print(isCompetent)
     
 addStudent("Sara", 8)
-printStudent()
+print("Nombre del alumno/a:", student.name, "Nota:", student.grade)
+isCompetent()
