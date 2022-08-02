@@ -1,13 +1,13 @@
 class TextBuilder:
    
     def read():
-        file = open('entradaSalida/note.txt', 'r')
+        file = open('entradaSalida/ej1/note.txt', 'r')
         text = file.readlines()
         file.close()
         print(text)
 
     def write(text):
-        file = open('entradaSalida/note.txt', 'w')
+        file = open('entradaSalida/ej1/note.txt', 'w')
         file.write(text)
         print(text)
         file.close()
