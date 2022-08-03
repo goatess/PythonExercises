@@ -1,4 +1,4 @@
-class Car:
+class Vehicle:
     wheels = 4
     engine = True
     breaks = True
@@ -7,3 +7,4 @@ class Car:
     
     def __init__(self, color):
        self.color = color 
+       

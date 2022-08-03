@@ -14,6 +14,3 @@ class TextBuilder:
 
 TextBuilder.write("Este es el nuevo texto de la nota")
 TextBuilder.read()
-
-
-

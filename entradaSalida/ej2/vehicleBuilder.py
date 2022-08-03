@@ -1,7 +1,7 @@
 import pickle 
 import vehicle
 
-car = vehicle.Car("red")
+car = vehicle.Vehicle("red")
 file = open('entradaSalida/ej2/car.bin', 'wb')
 pickle.dump(car, file)
 file.close()
