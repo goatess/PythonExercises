@@ -3,21 +3,19 @@
 # No debería haber países repetidos (haz uso de set). Finalmente, muestra por 
 # consola la lista de países ordenados alfabéticamente y separados por comas.
 
-def split(countries):
+def splitList(countries):
     countries = countries.split(', ')
     return countries
 
-def sort(countries):
-    countries = countries.sort()
-    return countries
+def sortList(countries):
+    return sorted(countries)
 
-def filter(countries):
-    countriesSet = {}
-    countriesSet = set(countries)
-    return countriesSet
+def filterList(countries):
+    return set(countries)
 
-countries = split('uno, dos, tres')
-countries = sort(countries)
-print(filter(countries))  
+countries = splitList('Francia, Italia, Grecia, Francia')
+countries = filterList(countries)
+countries = sortList(countries)
+print(countries)
 
     
