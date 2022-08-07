@@ -6,7 +6,7 @@ def restart():
     seleccionado.set('0')
 
 def quitApp():
-    quit()
+    window.quit()
     
 window = tkinter.Tk()
 window.columnconfigure(5, weight=5)
