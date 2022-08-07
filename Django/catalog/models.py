@@ -3,7 +3,6 @@ from django.urls import reverse
 import uuid
 # Create your models here.
 
-
 class Genre(models.Model):
     name = models.CharField('Genre', max_length=64,help_text='Género de la película')
 
@@ -13,8 +12,8 @@ class Genre(models.Model):
 class Film(models.Model):
     title = models.CharField('Title', max_length=64, help_text='Nombre de la película')
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
-    summary = models.TextField('Summary', max_length=100, help_text='Argumento breve de la película')
-    isbn = models.CharField('ISBN', max_length=13, help_text='ISBN de 13 caracteres')
+    summary = models.TextField('Summary', max_length=1000, help_text='Argumento breve de la película')
+    year = models.CharField('year', max_length=4, default='Null', help_text='Year of the film')
     genre = models.ManyToManyField(Genre)
 
     def __str__(self):
@@ -38,6 +37,9 @@ class FilmInstance(models.Model):
     )
 
     status = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default='m', help_text='Disponibilidad de la película')
+    
+    def __str__(self):
+        return self.status
 
 class Meta:
     ordering = ['due_back']
@@ -52,7 +54,7 @@ class Author(models.Model):
     date_of_death = models.DateField('Died', null=True, blank=True)
     
     def __str__(self):
-        return self.last_name
+        return '%s (%s)' % (self.last_name, self.first_name)
 
     def get_absolute_url(self):
         return reverse('book-detail', args=[str(self.id)])
