@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Local Videoclub Home</h1>
+    <p>Welcome to <em>LocalVideoclub</em>, a very basic Django website developed as a tutorial example</p>
+
+<h2>Dynamic content</h2>
+
+    <p>The Videoclub has the following records counts:</p>
+    <ul>
+        <li><strong>Films:</strong>{{ num_films }} </li>
+        <li><strong>Authors:</strong>{{ num_authors }} </li>
+        <li><strong>Genres:</strong>{{ num_genres }} </li>
+        <li><strong>Copies:</strong>{{ num_instances }} </li>
+        <li><strong>Copies available:</strong>{{ available }} </li>
+
+    </ul>
+{% endblock %}

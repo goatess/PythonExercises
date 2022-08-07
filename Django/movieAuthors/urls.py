@@ -22,4 +22,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/', include('catalog.urls'))
     
-]  + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
