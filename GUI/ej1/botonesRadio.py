@@ -1,31 +1,34 @@
 import sys
-import tkinter
+import tkinter as tk
 from tkinter import ttk
-
-def restart():
-    seleccionado.set('0')
-
-def quitApp():
-    window.quit()
+class Application(ttk.Frame):
     
-window = tkinter.Tk()
-window.columnconfigure(5, weight=5)
-seleccionado = tkinter.StringVar()
+    def __init__(self, window):
+        super().__init__(window)
 
-yes = ttk.Radiobutton(window, text='Sí', value='1', variable=seleccionado)
-no = ttk.Radiobutton(window, text = 'No', value='2', variable=seleccionado)
-perhaps = ttk.Radiobutton(window, text = 'Quizás', value='3', variable=seleccionado)
+        window.columnconfigure(5, weight=5)
+        self.seleccionado = tk.StringVar()
+        self.yes = ttk.Radiobutton(window, text='Sí', value='1', variable=self.seleccionado)
+        self.no = ttk.Radiobutton(window, text = 'No', value='2', variable=self.seleccionado)
+        self.perhaps = ttk.Radiobutton(window, text = 'Quizás', value='3', variable=self.seleccionado)
+        self.restart = ttk.Button(window, text='Restart', command=self.restart)
+        self.quitB = ttk.Button(window, text = 'Quit', command = self.quitApp)
+        self.formLabel = ttk.Label(window, text='Formulario')
 
-restart = ttk.Button(window, text='Restart', command=restart)
-quitB = ttk.Button(window, text = 'Quit', command = quitApp)
+        self.formLabel.grid(column=0, row=0, pady=5, padx=5)
+        self.yes.grid(column=0, row=1, pady=5, padx=5)
+        self.no.grid(column=0, row=2, pady=5, padx=5)
+        self.perhaps.grid(column=0, row=3,pady=5, padx=5)
+        self.restart.grid(column=0, row=4, pady=5, padx=5)
+        self.quitB.grid(column=0, row=5, pady=5, padx=5)
 
-def locateButtons():
-    yes.grid(column=0, row=1, pady=5, padx=5)
-    no.grid(column=0, row=2, pady=5, padx=5)
-    perhaps.grid(column=0, row=3,pady=5, padx=5)
-    restart.grid(column=0, row=4, pady=5, padx=5)
-    quitB.grid(column=0, row=5, pady=5, padx=5)
+    def restart(self):
+        self.seleccionado.set('0')
 
-locateButtons()
-window.mainloop()	
+    def quitApp(self):
+        window.quit()   
+        
+window = tk.Tk()
+app = Application(window)
+app.mainloop()
 sys.exit(0)
