@@ -7,7 +7,6 @@ def index(request):
     num_films = Film.objects.all().count()
     num_instances = FilmInstance.objects.all().count()
     num_authors = Author.objects.all().count()
-    num_genres = Genre.objects.all().count()
     
     available = FilmInstance.objects.filter(status__exact='a'). count()
     
@@ -24,11 +23,7 @@ def index(request):
     
 def films(request):
     num_films = Film.objects.all().count()
-    num_instances = FilmInstance.objects.all().count()
-    num_authors = Author.objects.all().count()
-    
-    available = FilmInstance.objects.filter(status__exact='a'). count()
-    
+
     return render(                     # contexto
         request,
         'films.html',
@@ -37,4 +32,13 @@ def films(request):
         }
     )
     
+def authors(request):
+    num_authors = Author.objects.all().count()
     
+    return render(                     # contexto
+        request,
+        'authors.html',
+        context={
+            'num_authors': num_authors,
+        }
+    )    
