@@ -21,25 +21,42 @@ def index(request):
             'available': available, 
         }
     )
-    
+
 def films(request):
     num_films = Film.objects.all().count()
-
+    films = Film.objects.all()
+    
     return render(                     # contexto
         request,
         'films.html',
         context={
             'num_films': num_films,
+            'films': films,
         }
     )
     
 def authors(request):
     num_authors = Author.objects.all().count()
+    authors = Author.objects.all()
     
     return render(                     # contexto
         request,
         'authors.html',
         context={
             'num_authors': num_authors,
+            'authors': authors,
         }
-    )    
+    )   
+    
+def genres(request):
+    num_genres = Genre.objects.all().count()
+    genres = Genre.objects.all()
+    
+    return render(                     # contexto
+        request,
+        'genres.html',
+        context={
+            'num_genres': num_genres,
+            'genres': genres,
+        }
+    )     
